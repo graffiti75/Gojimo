@@ -62,7 +62,8 @@ public class MainActivity extends Activity {
 
             @Override
             public void success(List<Qualifications> object, Response response) {
-                //
+                int i = 0;
+                i = i + 1;
             }
         });
     }

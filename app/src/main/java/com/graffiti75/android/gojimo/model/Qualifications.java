@@ -13,7 +13,7 @@ public class Qualifications {
 
 	private String id;
 	private String name;
-	private List<Country> country;
+	private Country country;
 	private List<Subject> subjects;
 	private String link;
 	private List<DefaultProducts> default_products;
@@ -24,7 +24,7 @@ public class Qualifications {
 
 	public Qualifications() {}
 
-	public Qualifications(String id, String name, List<Country> country, List<Subject> subjects,
+	public Qualifications(String id, String name, Country country, List<Subject> subjects,
 		String link, List<DefaultProducts> default_products) {
 		this.id = id;
 		this.name = name;
@@ -68,10 +68,10 @@ public class Qualifications {
 		this.name = name;
 	}
 
-	public List<Country> getCountry() {
+	public Country getCountry() {
 		return country;
 	}
-	public void setCountry(List<Country> country) {
+	public void setCountry(Country country) {
 		this.country = country;
 	}
 

@@ -15,10 +15,10 @@ public class DefaultProducts {
 	private String title;
 	private String link;
 	private String ios_iap_id;
-	private String store_ids;
+	private List<String> store_ids;
 	private String type;
 	private List<Asset> assets;
-	private List<Publisher> publisher;
+	private Publisher publisher;
 	private String author;
 
 	//--------------------------------------------------
@@ -28,7 +28,7 @@ public class DefaultProducts {
 	public DefaultProducts() {}
 
 	public DefaultProducts(String id, String title, String link, String ios_iap_id,
-		String store_ids, String type, List<Asset> assets, List<Publisher> publisher,
+		List<String> store_ids, String type, List<Asset> assets, Publisher publisher,
 		String author) {
 		this.id = id;
 		this.title = title;
@@ -92,10 +92,10 @@ public class DefaultProducts {
 		this.ios_iap_id = ios_iap_id;
 	}
 
-	public String getStoreIds() {
+	public List<String> getStoreIds() {
 		return store_ids;
 	}
-	public void setStoreIds(String store_ids) {
+	public void setStoreIds(List<String> store_ids) {
 		this.store_ids = store_ids;
 	}
 
@@ -113,10 +113,10 @@ public class DefaultProducts {
 		this.assets = assets;
 	}
 
-	public List<Publisher> getPublisher() {
+	public Publisher getPublisher() {
 		return publisher;
 	}
-	public void setPublisher(List<Publisher> publisher) {
+	public void setPublisher(Publisher publisher) {
 		this.publisher = publisher;
 	}
 
