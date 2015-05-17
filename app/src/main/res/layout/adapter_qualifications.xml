@@ -1,0 +1,43 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/black" />
+
+    <TextView
+        style="@style/TextViewStyle"
+        android:id="@+id/id_qualifications_id_text_view"
+        android:text="@string/adapter_qualifications_id" />
+
+    <TextView
+        style="@style/TextViewStyle"
+        android:id="@+id/id_qualifications_name_text_view"
+        android:text="@string/adapter_qualifications_name" />
+
+    <TextView
+        style="@style/TextViewStyle"
+        android:id="@+id/id_qualifications_country_text_view"
+        android:text="@string/adapter_qualifications_country" />
+
+    <TextView
+        style="@style/TextViewStyle"
+        android:id="@+id/id_qualifications_subjects_text_view"
+        android:text="@string/adapter_qualifications_subjects" />
+
+    <TextView
+        style="@style/TextViewStyle"
+        android:id="@+id/id_qualifications_link_text_view"
+        android:text="@string/adapter_qualifications_link" />
+
+    <TextView
+        style="@style/TextViewStyle"
+        android:id="@+id/id_qualifications_default_products_text_view"
+        android:text="@string/adapter_qualifications_default_products" />
+</LinearLayout>
