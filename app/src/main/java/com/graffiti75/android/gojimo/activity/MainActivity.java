@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.graffiti75.android.gojimo.R;
@@ -91,6 +92,12 @@ public class MainActivity extends Activity {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
         QualificationsAdapter qualificationsAdapter = new QualificationsAdapter(this, object);
+        qualificationsAdapter.SetOnClickListener(new QualificationsAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                Crouton.makeText(MainActivity.this, "Position is " + position + "." , Style.CONFIRM).show();
+            }
+        });
         recyclerView.setAdapter(qualificationsAdapter);
     }
 }

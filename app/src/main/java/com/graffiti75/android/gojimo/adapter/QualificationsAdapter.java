@@ -23,6 +23,7 @@ public class QualificationsAdapter extends RecyclerView.Adapter<QualificationsAd
 
     private List<Qualifications> mItems;
     private Activity mContext;
+    OnItemClickListener mItemClickListener;
 
     //--------------------------------------------------
     // Constructor
@@ -96,7 +97,7 @@ public class QualificationsAdapter extends RecyclerView.Adapter<QualificationsAd
     // View Holder
     //--------------------------------------------------
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public TextView id;
         public TextView name;
         public TextView country;
@@ -112,6 +113,27 @@ public class QualificationsAdapter extends RecyclerView.Adapter<QualificationsAd
             subjects = (TextView) view.findViewById(R.id.id_qualifications_subjects_text_view);
             link = (TextView) view.findViewById(R.id.id_qualifications_link_text_view);
             defaultProducts = (TextView) view.findViewById(R.id.id_qualifications_default_products_text_view);
+            view.setOnClickListener(this);
         }
+
+        @Override
+        public void onClick(View view) {
+            Integer position = getPosition();
+            if (mItemClickListener != null) {
+                mItemClickListener.onItemClick(view, position);
+            }
+        }
+    }
+
+    //--------------------------------------------------
+    // Listener
+    //--------------------------------------------------
+
+    public interface OnItemClickListener {
+        public void onItemClick(View view , int position);
+    }
+
+    public void SetOnClickListener(final OnItemClickListener mItemClickListener) {
+        this.mItemClickListener = mItemClickListener;
     }
 }
