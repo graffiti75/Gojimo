@@ -8,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.MenuItem;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.google.gson.Gson;
@@ -71,6 +72,17 @@ public class MainActivity extends Activity {
         // Toolbar.
         Toolbar toolbar = (Toolbar) findViewById(R.id.id_toolbar);
         toolbar.setTitle(getString(R.string.app_name));
+        toolbar.inflateMenu(R.menu.menu_main);
+        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                mMaterialDialog = new MaterialDialog.Builder(MainActivity.this)
+                        .title(R.string.progress_dialog).content(R.string.please_wait).progress(true, 0)
+                        .show();
+                getGojimoData();
+                return true;
+            }
+        });
     }
 
     public void getGojimoData() {
@@ -124,15 +136,9 @@ public class MainActivity extends Activity {
         recyclerView.setAdapter(qualificationsAdapter);
     }
 
-    public String[] getCurrentArray(Qualifications item) {
-        String[] array;
-        ArrayList<String> arrayList = new ArrayList<String>();
-        List<Subject> subjectList = item.getSubjects();
-        for (Subject elem : subjectList) {
-            arrayList.add(elem.toString());
-            arrayList.add("     ");
-        }
-        array = arrayList.toArray(new String[arrayList.size()]);
-        return array;
-    }
+    //--------------------------------------------------
+    // Preferences
+    //--------------------------------------------------
+
+
 }
