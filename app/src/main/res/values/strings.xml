@@ -5,6 +5,9 @@
 
     <!-- Activities -->
     <string name="error_cause">The error cause is </string>
+    <string name="activity_main_qualifications">Qualifications List</string>
+    <string name="activity_subject_list_empty">Subject list is empty!</string>
+    <string name="activity_subject_text">Subject List</string>
 
     <!-- Qualifications -->
     <string name="adapter_qualifications_id">Id:</string>

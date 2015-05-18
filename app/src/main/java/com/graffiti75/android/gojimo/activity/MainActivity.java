@@ -105,16 +105,20 @@ public class MainActivity extends Activity {
         qualificationsAdapter.SetOnClickListener(new QualificationsAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                // Feedback for user.
-                Crouton.makeText(MainActivity.this, "Position is " + position + ".", Style.CONFIRM).show();
-
-                // Calls Subject Activity.
-                Intent intent = new Intent(MainActivity.this, SubjectActivity.class);
+                // Gets the extra.
                 Qualifications item = object.get(position);
-                Gson gson = new Gson();
-                String converted = gson.toJson(item);
-                intent.putExtra(SUBJECT_EXTRA, converted);
-                startActivity(intent);
+                List<Subject> list = item.getSubjects();
+                if (list == null || list.size() <= 0) {
+                    Crouton.makeText(MainActivity.this, getString(R.string.activity_subject_list_empty), Style.ALERT).show();
+                } else {
+                    Gson gson = new Gson();
+                    String converted = gson.toJson(item);
+
+                    // Calls Subject Activity.
+                    Intent intent = new Intent(MainActivity.this, SubjectActivity.class);
+                    intent.putExtra(SUBJECT_EXTRA, converted);
+                    startActivity(intent);
+                }
             }
         });
         recyclerView.setAdapter(qualificationsAdapter);

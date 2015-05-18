@@ -7,26 +7,11 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.Toast;
 
-import com.afollestad.materialdialogs.MaterialDialog;
 import com.google.gson.Gson;
 import com.graffiti75.android.gojimo.R;
-import com.graffiti75.android.gojimo.adapter.QualificationsAdapter;
 import com.graffiti75.android.gojimo.adapter.SubjectAdapter;
 import com.graffiti75.android.gojimo.model.Qualifications;
-import com.graffiti75.android.gojimo.model.Subject;
-import com.graffiti75.android.gojimo.service.RetrofitService;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import de.keyboardsurfer.android.widget.crouton.Crouton;
-import de.keyboardsurfer.android.widget.crouton.Style;
-import retrofit.Callback;
-import retrofit.RestAdapter;
-import retrofit.RetrofitError;
-import retrofit.client.Response;
 
 /**
  * Created by Rodrigo Cericatto on 18/05/2015.
@@ -54,6 +39,13 @@ public class SubjectActivity extends Activity {
         // Toolbar.
         Toolbar toolbar = (Toolbar) findViewById(R.id.id_toolbar);
         toolbar.setTitle(getString(R.string.activity_subject));
+        toolbar.setNavigationIcon(R.drawable.ic_home_as_up);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     public void setSubjectRecyclerView() {

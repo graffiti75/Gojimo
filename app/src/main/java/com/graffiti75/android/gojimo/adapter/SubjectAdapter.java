@@ -52,7 +52,11 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.ViewHold
 
         // Layout.
         String color = item.getColour();
-        holder.layout.setBackgroundColor(Color.parseColor(color));
+        if (color != null) {
+            holder.layout.setBackgroundColor(Color.parseColor(color));
+        } else {
+            holder.layout.setBackgroundColor(mContext.getResources().getColor(R.color.white));
+        }
 
         // Id.
         String text = mContext.getString(R.string.adapter_subject_id);

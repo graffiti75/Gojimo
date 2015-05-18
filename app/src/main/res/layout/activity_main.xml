@@ -4,7 +4,16 @@
     android:orientation="vertical">
 
     <!-- TOOLBAR -->
-    <include layout="@layout/toolbar"/>
+    <include layout="@layout/toolbar" />
+
+    <!-- TEXT VIEW -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="@string/activity_main_qualifications"
+        android:textSize="22dp"
+        android:textStyle="bold" />
 
     <!-- QUALIFICATIONS RECYCLER VIEW -->
     <android.support.v7.widget.RecyclerView
