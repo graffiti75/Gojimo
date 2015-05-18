@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Toast;
 
@@ -41,12 +42,19 @@ public class SubjectActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_subject);
 
+        setLayout();
         setSubjectRecyclerView();
     }
 
     //--------------------------------------------------
     // Methods
     //--------------------------------------------------
+
+    public void setLayout() {
+        // Toolbar.
+        Toolbar toolbar = (Toolbar) findViewById(R.id.id_toolbar);
+        toolbar.setTitle(getString(R.string.activity_subject));
+    }
 
     public void setSubjectRecyclerView() {
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.id_subject_recycler_view);

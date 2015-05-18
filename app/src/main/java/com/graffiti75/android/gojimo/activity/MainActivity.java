@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.afollestad.materialdialogs.MaterialDialog;
@@ -66,6 +67,10 @@ public class MainActivity extends Activity {
     public void setLayout() {
         // Progress Bar.
         mMaterialDialog = new MaterialDialog.Builder(this).title(R.string.progress_dialog).content(R.string.please_wait).progress(true, 0).show();
+
+        // Toolbar.
+        Toolbar toolbar = (Toolbar) findViewById(R.id.id_toolbar);
+        toolbar.setTitle(getString(R.string.app_name));
     }
 
     public void getGojimoData() {
