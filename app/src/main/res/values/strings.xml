@@ -1,6 +1,7 @@
 <resources>
     <!-- Application -->
     <string name="app_name">Gojimo</string>
+    <string name="activity_subject">Subject</string>
 
     <!-- Activities -->
     <string name="error_cause">The error cause is </string>
@@ -13,7 +14,13 @@
     <string name="adapter_qualifications_link">Link:</string>
     <string name="adapter_qualifications_default_products">Default Products:</string>
 
+    <!-- Subject -->
+    <string name="adapter_subject_id">Id:</string>
+    <string name="adapter_subject_title">Title:</string>
+    <string name="adapter_subject_link">Link:</string>
+
     <!-- Material Dialog -->
     <string name="progress_dialog">Loading Data</string>
+    <string name="list_dialog">Showing Subjects</string>
     <string name="please_wait">Please wait&#8230;</string>
 </resources>

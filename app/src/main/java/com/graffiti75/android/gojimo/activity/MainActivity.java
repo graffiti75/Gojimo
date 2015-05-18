@@ -1,6 +1,7 @@
 package com.graffiti75.android.gojimo.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -8,11 +9,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.google.gson.Gson;
 import com.graffiti75.android.gojimo.R;
 import com.graffiti75.android.gojimo.adapter.QualificationsAdapter;
 import com.graffiti75.android.gojimo.model.Qualifications;
+import com.graffiti75.android.gojimo.model.Subject;
 import com.graffiti75.android.gojimo.service.RetrofitService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import de.keyboardsurfer.android.widget.crouton.Crouton;
@@ -32,6 +36,7 @@ public class MainActivity extends Activity {
     //--------------------------------------------------
 
     public static final String END_POINT = "https://api.gojimo.net";
+    public static final String SUBJECT_EXTRA = "subject_extra";
 
     //--------------------------------------------------
     // Attributes
@@ -81,7 +86,7 @@ public class MainActivity extends Activity {
         });
     }
 
-    public void setQualificationsRecyclerView(List<Qualifications> object) {
+    public void setQualificationsRecyclerView(final List<Qualifications> object) {
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.id_qualifications_recycler_view);
         recyclerView.setVisibility(RecyclerView.VISIBLE);
         mMaterialDialog.cancel();
@@ -95,9 +100,30 @@ public class MainActivity extends Activity {
         qualificationsAdapter.SetOnClickListener(new QualificationsAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                Crouton.makeText(MainActivity.this, "Position is " + position + "." , Style.CONFIRM).show();
+                // Feedback for user.
+                Crouton.makeText(MainActivity.this, "Position is " + position + ".", Style.CONFIRM).show();
+
+                // Calls Subject Activity.
+                Intent intent = new Intent(MainActivity.this, SubjectActivity.class);
+                Qualifications item = object.get(position);
+                Gson gson = new Gson();
+                String converted = gson.toJson(item);
+                intent.putExtra(SUBJECT_EXTRA, converted);
+                startActivity(intent);
             }
         });
         recyclerView.setAdapter(qualificationsAdapter);
+    }
+
+    public String[] getCurrentArray(Qualifications item) {
+        String[] array;
+        ArrayList<String> arrayList = new ArrayList<String>();
+        List<Subject> subjectList = item.getSubjects();
+        for (Subject elem : subjectList) {
+            arrayList.add(elem.toString());
+            arrayList.add("     ");
+        }
+        array = arrayList.toArray(new String[arrayList.size()]);
+        return array;
     }
 }

@@ -13,7 +13,7 @@ import com.graffiti75.android.gojimo.model.Qualifications;
 import java.util.List;
 
 /**
- * Created by Rodrigo Cericatto on 13/05/2015.
+ * Created by Rodrigo Cericatto on 17/05/2015.
  */
 public class QualificationsAdapter extends RecyclerView.Adapter<QualificationsAdapter.ViewHolder> {
 
